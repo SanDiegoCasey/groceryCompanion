@@ -1,2 +1,17 @@
+#################
+## Images
+#################
+
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.psd
+*.ai
+
+
+#################
+## Directories
+#################
+
 node_modules/
-.eslintrc.js
