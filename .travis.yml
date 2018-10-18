@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: H8ynxOhWeOHoWF+UuGSCizEt7oIcuo1CCrHxegFCeWI1zmTQEBNurYf1yG9RmFJUp28NN717gLxGKj8GLvCG1JOwUkHjUE1oMcp8vTPkRSVCBIs0qfC+FciiKdON46qouboW2K09X3j1RPGDgym1Llhd2oncp+C/lDLW98Yo5c7Qd44hzfyo59F2JKP/Gckgax9w1WlhVgiq+tdeTwLui8Xp+7hVchWCaqkiAznnlBMBG8vy6jQI6mplZQhYc38+GhB+QGA4QhzGvrxY2EV0z+go0ZRFdMszQJ079GIoLL9iiUNFIiGcM//S79BGCt7fBddwxrsClq7gykXWqzfkd2wbEkTKvWJnfU+9e99oGL3K7DuZnsXNjfU20fBGETovoQdQzE8TxSy2mK5B9SDrSwsQnX1y+kHjImUK7G9NkOsTiTr69Vg17Y+/EdNzKeCcJTK16ftaXiyr5+BbLOvoc7gV0OGDJZg0cLVrl+GgUf7gZjU0UnZMZ3TRDlZWmL4F1sUFahJhqj+ygICAF1OzTT2+mKMqma+Fvdah8+ovwcyTJFbqA4mNAX5fXuo0ZsrilJwyAa00gFfOqXLk0uZEq2gZR4MQo+ZRzlEkYZ7bOwJy77AmR2FR0th1QDczCa/0vl4qHT+F5TLRdWNRpQFJKXWbVaH727HSwfsIZOBHpBg=
+  app: nameless-taiga-42046
+  on:
+    repo: SanDiegoCasey/groceryCompanion
