@@ -7,4 +7,3 @@ deploy: grocerycompanion
   app: groceryCompanion
   on:
     repo: SanDiegoCasey/groceryCompanion
-  os: windows
