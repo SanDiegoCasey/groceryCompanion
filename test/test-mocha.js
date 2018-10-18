@@ -18,3 +18,14 @@ describe("index page", function() {
       });
   });
 });
+
+describe("about page", function() {
+  it("should exist", function() {
+    return chai
+      .request(app)
+      .get("/about.html")
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
