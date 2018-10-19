@@ -4,9 +4,9 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise; //set mongoose promise style to es6
-
-const { DATABASE_URL, PORT } = require("./config");
-const { ModelLink1, ModelLink2 } = require("./models");
+// 
+// const { DATABASE_URL, PORT } = require("./config");
+// const { ModelLink1, ModelLink2 } = require("./models");
 
 const app = express();
 
