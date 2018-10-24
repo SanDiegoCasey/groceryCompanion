@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/SanDiegoCasey/groceryCompanion#readme",
   "dependencies": {
-    "bcrypt": "latest",
     "body-parser": "latest",
     "jsonwebtoken": "latest",
     "express": "^4.16.4",
