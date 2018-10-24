@@ -16,3 +16,10 @@
 
 node_modules/
 localDocs
+
+#############
+## Private
+##############
+
+config.js
+.env

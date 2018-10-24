@@ -7,10 +7,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise; //set mongoose promise style to es6
 
 
-
+app.use(morgan('common'));
 
 app.use(express.static('public/views'));
-app.use(morgan('common'));
 app.use(express.json());
 
 module.exports = app;
