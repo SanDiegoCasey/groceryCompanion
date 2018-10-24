@@ -1,23 +1,12 @@
-"use strict";
+'use strict';
 
-const express = require("express");
-const morgan = require("morgan");
-const mongoose = require("mongoose");
-mongoose.Promise = global.Promise; //set mongoose promise style to es6
-// 
-// const { DATABASE_URL, PORT } = require("./config");
-// const { ModelLink1, ModelLink2 } = require("./models");
+const http = require('http');
+const app = require('./app');
 
-const app = express();
+const port = process.env.PORT || 8080;
 
-app.use(express.static("public"));
-app.use(morgan("common"));
-app.use(express.json());
+const server = http.createServer(app);
 
-if (require.main === module) {
-  app.listen(process.env.PORT || 8080, function(){
-    console.info(`App listening on ${this.address().port}`);
-  });
-}
 
-module.exports = app;
+server.listen(port);
+console.log(`Grocery Server is listening on port ${port}`);
