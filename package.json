@@ -30,6 +30,6 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "^5.2.0",
-    "nodemon": "latest"
+    "nodemon": "^1.18.4"
   }
 }
