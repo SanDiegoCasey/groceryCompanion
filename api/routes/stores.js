@@ -10,8 +10,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+  const store = {
+    prodId: req.body.prodId,
+    name: req.body.name,
+    location: req.body.location,
+  };
   res.status(201).json({
-    message: 'new store will be created'
+    message: 'new store will be created',
+    store: store
   });
 });
 

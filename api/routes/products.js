@@ -10,8 +10,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+  const product = {
+    name: req.body.name,
+    price: req.body.price,
+    size: req.body.size
+  };
   res.status(201).json({
-    message: 'new product was created'
+    message: 'new product was created',
+    createdProduct: product
   });
 });
 
