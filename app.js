@@ -5,9 +5,28 @@ const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const { MONGO_MLAB_PASS } = require('./config');
 
 const productRoutes = require('./api/routes/products');
 const storeRoutes = require('./api/routes/stores');
+//--------version 1------
+mongoose.connect(`mongodb://standarduser:${MONGO_MLAB_PASS}@ds141613.mlab.com:41613/grocerycompanion`, {
+  useNewUrlParser: true
+});
+
+
+mongoose.Promise = global.Promise; //set mongoose promise style to es6
+//--------version 1 end------
+//--------version 2------
+// mongoose.connect('mongodb://standarduser:' + process.env.MONGO_MLAB_PASS + '@ds141613.mlab.com:41613/grocerycompanion', {
+//   useNewUrlParser: true
+// });
+//--------version 2 end ------
+//--------version 3------
+// mongoose.connect('mongodb://standarduser:thinkuser1@ds141613.mlab.com:41613/grocerycompanion', {
+//   useNewUrlParser: true
+// });
+//--------version 3 end ------
 
 app.use(morgan('common'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -44,13 +63,5 @@ app.use((error, req, res, next) => {
     }
   });
 });
-
-
-mongoose.Promise = global.Promise; //set mongoose promise style to es6
-
-
-
-
-
 
 module.exports = app;
