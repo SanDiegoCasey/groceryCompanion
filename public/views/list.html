@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-	<title>Grocery Companion</title>
+	<title>Grocery Mobile Companion</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +21,15 @@
 	<div class="CLW-container-main">
 		<header>
 			<div class="CLW-top">
-				<a href="index.html"><img src="images/grocery-companion-logo-horz.png" alt="" class="mainlogo"></a>
+				<a href="index.html"><img src="images/grocery-mobile-logo-horz.png" alt="" class="mainlogo"></a>
 			</div>
 			<div class="CLW-title">My Grocery List</div>
 		</header>
 		<section role="list-form-row">
-			<div class="form-submit">
-				<form action="/action_page.php">
-					<select name="Groceries">
+			<div class="add-prod-form-submit">
+				<div class="addproductselect">
+					<form action="#">
+						<select name="Groceries">
 						<option value="Spinach">Spinach</option>
 						<option value="Chicken Breast">Chicken Breast</option>
 						<option value="Diet Mountain Dew">Diet Mountain Dew</option>
@@ -38,11 +39,11 @@
 						<option value="Eggs">Eggs</option>
 						<option value="Ground Beef">Ground Beef</option>
 					</select>
-					<input type="submit" value='&#x2714;'>
-				</form>
+						<input type="submit" value="✔">
+					</form>
+				</div>
 				<button class="addstore">NEW+</button>
 			</div>
-
 		</section>
 		<section class="storerow">
 			<div class="storelogo">
