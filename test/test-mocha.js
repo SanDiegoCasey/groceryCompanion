@@ -29,3 +29,36 @@ describe('about page', function() {
       });
   });
 });
+
+describe('login page', function() {
+  it('should exist', function() {
+    return chai
+      .request(app)
+      .get('/login.html')
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
+
+describe('stores page', function() {
+  it('should exist', function() {
+    return chai
+      .request(app)
+      .get('/stores.html')
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
+
+describe('products page', function() {
+  it('should exist', function() {
+    return chai
+      .request(app)
+      .get('/products.html')
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
