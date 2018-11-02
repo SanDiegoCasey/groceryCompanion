@@ -4,45 +4,68 @@
   <meta charset="utf-8">
   <title>selected demo</title>
   <style>
-  div {
-    color: red;
+  .add-prod-form-submit {
+    width:98%;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content:flex-end;
   }
+  .add-prod-form-submit select {
+      padding: 10px 10px;
+      width:80%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: 'Lato', sans-serif;
+      color:#333;
+      vertical-align: bottom;
+  }
+  .addproductselect {
+    width:100%;
+    text-align: right;
+  }
+  button {
+    background-color: #006600;
+    color: white;
+    padding: 10px 10px;
+    margin: 0px 0;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+  }
+
+  select {
+    /* display:block; */
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-top: -4px;
+    width:25%;
+  }
+
+
   </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
 
-<select name="garden" id="gardens">
-  <option>Flowers</option>
-  <option >Shrubs</option>
-  <option>Trees</option>
-  <option >Bushes</option>
-  <option>Grass</option>
-  <option>Dirt</option>
-</select>
-
-
-<select name="houses" >
-  <option>Flowers</option>
-  <option selected="selected">Shrubs</option>
-  <option>Trees</option>
-  <option selected="selected">Bushes</option>
-  <option>Grass</option>
-  <option>Dirt</option>
-</select>
-<div id="result"></div>
-
-<script>
-$( "#gardens" )
-  .change(function() {
-    var str = "";
-    $( "#gardens option:selected" ).each(function() {
-      str += $( this ).text() + " ";
-    });
-    $( "#result" ).text( str );
-  })
-  .trigger( "change" );
-</script>
+  <section role="list-form-row">
+    <div class="add-prod-form-submit">
+        <form action="#">
+          <select name="Groceries">
+            <option value="Spinach">Spinach</option>
+            <option value="Chicken Breast">Chicken Breast</option>
+            <option value="Diet Mountain Dew">Diet Mountain Dew</option>
+            <option value="Green Peppers">Green Peppers</option>
+            <option value="Mushrooms">Mushrooms</option>
+            <option value="Onions - Red">Onions - Red</option>
+            <option value="Eggs">Eggs</option>
+            <option value="Ground Beef">Ground Beef</option>
+          </select>
+          <input type="submit" value="✔">
+        </form>
+      <button class="addstore">NEW+</button>
+    </div>
+  </section>
 
 </body>
 </html>

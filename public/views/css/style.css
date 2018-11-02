@@ -127,14 +127,15 @@ p {
 
 .productname {
   font-size: 1em;
-  margin-left:5px;
+  margin-right:5px;
 }
 
 .productsize {
   font-size: .8em;
   margin-bottom: 2px;
-  margin-left:5px;
+  margin-right:5px;
   font-weight: 400;
+  text-align: right;
 }
 
 .CLW-button {
@@ -388,6 +389,17 @@ section.add-a-product {
     font-size: 1.2em;
 }
 
+#unit-result {
+  font-size: 1em;
+  margin: 5px;
+}
+
+.computed-price {
+  font-size: 2em;
+  color:#006600;
+  font-weight: bold;
+}
+
 button {
   background-color: #006600;
   color: white;
@@ -437,15 +449,6 @@ section.unit-converter {
    margin-top: -4px;
    width:18%;
  }
-
- select {
-   display:block;
-   margin-bottom: 10px;
-   margin-right: 5px;
-   margin-top: -4px;
-   width:25%;
- }
-
  .submit-row {
    width:98%;
    text-align: right;

@@ -33,22 +33,14 @@
 						<div class="productname">Chicken Breast</div>
 						<div class="block-select">
 							<label class="editlabel">Units</label>
-							<select name="unit">
-							<option value="each">each</option>
-							<option value="perpackage">per package</option>
-							<option value="perlb">per lb</option>
-							<option value="peroz">per oz</option>
-							<option value="perliter">per liter</option>
-							<option value="perquart">per quart</option>
-							<option value="pergallon">per gallon</option>
-							<option value="perpackage">per package</option>
-							<option value="percase">per case</option>
-							<option value="perdozen">per dozen</option>
-							<option value="for2">for 2</option>
-							<option value="for3">for 3</option>
-							<option value="for5">for 5</option>
-							<option value="for6">for 6</option>
-						</select>
+								<select name="unit">
+								<option value="each">each</option>
+								<option value="perlb">per lb</option>
+								<option value="peroz">per oz</option>
+								<option value="perliter">per liter</option>
+								<option value="perquart">per quart</option>
+								<option value="pergallon">per gallon</option>
+							</select>
 						</div>
 					</div>
 					<div class="add-a-prod-pricing">
@@ -94,39 +86,39 @@
 				<h2>Conversion Calculator</h2>
 				<form action="#">
 					<div class="form-group">
-						<label>Price</label>
-						<input value="" class="input-control" />
+						<label>Price $</label>
+						<input value="" class="input-control" id="price" />
 
-						<label class="right-inline-units"># Units</label>
-						<input value="" class="input-control" />
+						<label class="right-inline-units">Qty</label>
+						<input value="" class="input-control" id="unitQty" />
 
 						<label class="right-inline" for="unittype">Unit type</label>
-						<select name="unit">
+						<select name="unit" id="conversion-selector">
 								<option value="oz">oz</option>
 								<option value="lbs">lbs</option>
-								<option value="KG">KG</option>
+								<!-- <option value="KG">KG</option>
 								<option value="Grams">Grams</option>
 								<option value="Gallon">Gallon</option>
 								<option value="Quart">Quart</option>
 								<option value="Liter">Liter</option>
-								<option value="peroz">3 pack</option>
-								<option value="peroz">5 pack</option>
-								<option value="perquart">6 pack</option>
-								<option value="pergallon">12 pack</option>
-								<option value="perpackage">18 pack</option>
-								<option value="percase">24 pack</option>
-								<option value="perdozen">36 pack</option>
-								<option value="for2">48 pack</option>
+								<option value="3pack">3 pack</option>
+								<option value="5pack">5 pack</option>
+								<option value="6pack">6 pack</option>
+								<option value="12pack">12 pack</option>
+								<option value="18pack">18 pack</option>
+								<option value="24pack">24 pack</option>
+								<option value="36pack">36 pack</option>
+								<option value="48pack">48 pack</option> -->
 							</select>
 					</div>
 
-			<div class="submit-calc">
-				<input type="submit" value="Calculate">
-			</div>
-			</form>
-			<div id="unit-result">
-				Results
-			</div>
+					<div class="submit-calc">
+						<input type="submit" value="Calculate">
+					</div>
+				</form>
+				<div id="unit-result">
+
+				</div>
 
 		</section>
 
@@ -140,14 +132,14 @@
 				</div>
 			</div>
 		</section>
-	</div>
+		</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script>
-		window.jQuery || document.write('<script src="js/libs/jquery-3.3.1.min.js">\x3C/script>')
-	</script>
-	<script src="js/script.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/libs/jquery-3.3.1.min.js">\x3C/script>')
+		</script>
+		<script src="js/script.js"></script>
 
 </body>
 
