@@ -418,13 +418,14 @@ section.unit-converter {
 .converter-form {
   width:96%;
   margin:auto;
-  margin-top:40px;
+  margin-top:20px;
 }
 
 .form-group {
    display: flex;
    flex-direction: row;
    margin-top: 20px;
+   margin-bottom: 10px;
  }
 
  .form-group label {
@@ -440,6 +441,11 @@ section.unit-converter {
 
  .form-group label.right-inline-units {
    text-align: right;
+ }
+
+ .form-group select {
+   text-align: right;
+   margin-top:-10px;
  }
 
  .form-group .input-control {
@@ -494,7 +500,7 @@ section.unit-converter {
   -webkit-filter: drop-shadow(3px 3px 3px #494848);
   filter: drop-shadow(3px 3px 3px #494848);
   max-width: 80%;
-  margin-top: 35px;
+  margin-top: 20px;
 }
 
 
