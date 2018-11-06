@@ -1,17 +1,13 @@
 const mongoose = require('mongoose');
 
-
 const PriceSchema = mongoose.Schema({
-  price: String,
-  storeLogo: String,
+  price: String
 });
 
-
-const ProductSchema = mongoose.Schema({
+const ListProductSchema = mongoose.Schema({
   name: String,
   unit: String,
   prices: [PriceSchema]
 });
 
-
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('ListProduct', ListProductSchema, 'listproducts');

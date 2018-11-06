@@ -2,11 +2,19 @@
 
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+const { StoredStore } = require('../models/storedStores');
 
 router.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'stores will show here'
-  });
+  StoredStore
+    .find()
+    .then(stores => {
+      res.json(stores);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'something screwed up KC'});
+    });
 });
 
 router.post('/', (req, res, next) => {

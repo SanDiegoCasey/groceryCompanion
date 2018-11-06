@@ -1,6 +1,131 @@
 'use strict';
 
 $(function() {
+
+  var $products = $('#productsInList');
+  var $stores = $('#storesInList');
+  var $groceryList = $('#groceryList');
+  var $editStores = $('#storeLogoEdit');
+  var $chooseStores = $('#currentStores');
+  var $availableStores = $('#availableStores');
+
+  $.ajax({
+    type: 'GET',
+    url: '/storedproducts',
+    success: function(products) {
+      $.each(products, function(i, product) {
+        $groceryList.append(
+          `<option value="${product.name.replace(/\s+/g, '').toLowerCase()}">${product.name} ${product.size}</option>`
+        );
+      });
+    }
+  });
+
+
+  $.ajax({
+    type: 'GET',
+    url: '/listproducts',
+    success: function(products) {
+      $.each(products, function(i, product) {
+        $products.append(`<div class="result-row">
+              						<div class="checkboxes">
+              							<div class="checkedoff">
+              								<form action="#" method="get">
+              									<input type="checkbox" id="deleterow" name="prodchecked">
+              								</form>
+              							</div>
+              							<div class="deleterow">
+              								<img src="images/icons/icon-delete.png" alt="">
+              							</div>
+              						</div>
+              						<div class="productdescription">
+              							<div class="productname">${product.name}</div>
+              							<div class="productsize">${product.size}</div>
+              						</div>
+              						<div class="price">$${product.prices[0].price}</div>
+              						<div class="price">$${product.prices[1].price}</div>
+              						<div class="price">$${product.prices[2].price}</div>
+              						<div class="storeEnd"><a href="product-edit.html"><img src="images/icons/icon-edit-pencil-clear.png" width="20px"></a></div>
+              					</div>`);
+      });
+    }
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/liststores',
+    success: function(stores) {
+      $.each(stores, function(i, store) {
+        $stores.prepend(`<div class="storelogo">
+        				<img src="images/icons/grocery/icon-grocery-${store.name.replace(/\s+/g, '').toLowerCase()}" alt="${store.name} logo">
+        			</div>`);
+      });
+    }
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/liststores',
+    success: function(stores) {
+      $.each(stores, function(i, store) {
+        $editStores.append(`<div class="block-price">
+            <div class="block-img">
+              <img src="images/icons/grocery/icon-grocery-${store.name.replace(/\s+/g, '').toLowerCase()}.jpg" alt="${store.name} logo">
+            </div>
+            <div class="block-input-price">
+              <input class="price-label" type="text" />
+            </div>
+          </div>
+          `);
+      });
+    }
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/liststores',
+    success: function(stores) {
+      $.each(stores, function(i, store) {
+        $chooseStores.append(`<div class="fav-store">
+          <div class="fav-store-img">
+            <img src="images/icons/grocery/icon-grocery-${store.name.replace(/\s+/g, '').toLowerCase()}.jpg" alt="">
+          </div>
+          <div class="fav-store-name">
+            ${store.name}
+          </div>
+          <div class="fav-store-add">
+            <a href="#">remove</a>
+          </div>
+        </div>
+          `);
+      });
+    }
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/storedstores',
+    success: function(stores) {
+      $.each(stores, function(i, store) {
+        $availableStores.append(`<div class="fav-store">
+          <div class="fav-store-img">
+            <img src="images/icons/grocery/icon-grocery-${store.name.replace(/\s+/g, '').toLowerCase()}.jpg" alt="">
+          </div>
+          <div class="fav-store-name">
+            ${store.name}
+          </div>
+          <div class="fav-store-add">
+            <a href="#">add+</a>
+          </div>
+        </div>
+          `);
+      });
+    }
+  });
+
+
+
+  // Calculator Section
   $('.submit-calc').click(function(e) {
     let selected = $('#conversion-selector option:selected').val();
     let qty = $('#unitQty').val();
@@ -38,222 +163,8 @@ $(function() {
       return false;
     }
   });
+
+
+
+
 });
-
-var MOCK_PRODUCTS = {
-  'products': [
-    {
-      'id': '111',
-      'name': 'Roma Tomatoes',
-      'units': 'per lb',
-      'stores': [
-        {
-          'id': 1,
-          'storeLogo': 'images/icons/grocery/icon-grocery-vons.jpg',
-          'store1price': 1.99
-        },
-        {
-          'id': 2,
-          'storeLogo': 'images/icons/grocery/icon-grocery-walmart.jpg',
-          'store2price': 1.49
-        },
-        {
-          'id': 3,
-          'storeLogo': 'images/icons/grocery/icon-grocery-wholefoods.jpg',
-          'store3price': 1.89
-        }
-      ]
-    },
-    {
-      'id': '222',
-      'name': 'Red Pepper',
-      'units': 'each',
-      'stores': [
-        {
-          'id': 1,
-          'storeLogo': 'images/icons/grocery/icon-grocery-vons.jpg',
-          'store1price': 1.49
-        },
-        {
-          'id': 2,
-          'storeLogo': 'images/icons/grocery/icon-grocery-walmart.jpg',
-          'store1price': .99
-        },
-        {
-          'id': 3,
-          'storeLogo': 'images/icons/grocery/icon-grocery-wholefoods.jpg',
-          'store1price': 1.99
-        }
-      ]
-    },
-    {
-      'id': '333',
-      'name': 'Almonds',
-      'units': 'per oz',
-      'prices': [
-        { '_id': 1,
-          'price': .99,
-          'store': {
-          'storeLogo': 'images/icons/grocery/icon-grocery-walmart.jpg'}
-        },
-        { '_id'
-          'price': .89,
-          'store': {
-          'storeLogo': 'images/icons/grocery/icon-grocery-vons.jpg'}
-        },
-        { '_id': 2,
-          'price': 1.19,
-          'store': {
-          'storeLogo': 'images/icons/grocery/icon-grocery-wholefoods.jpg'}
-        },
-      ]
-      'stores': [
-        {
-          'id': 1,
-          'storeLogo': 'images/icons/grocery/icon-grocery-vons.jpg',
-          'store1price': 1
-        },
-        {
-          'id': 2,
-          'storeLogo': 'images/icons/grocery/icon-grocery-walmart.jpg',
-          'store1price': .62
-        },
-        {
-          'id': 3,
-          'storeLogo': 'images/icons/grocery/icon-grocery-wholefoods.jpg',
-          'store1price': .75
-        }
-      ]
-    }
-  ]
-};
-
-var MOCK_STORES = {
-  'stores': [
-    {
-      'id': 1,
-      'name': '7 Eleven',
-      'storeLogo':'images/icons/grocery/icon-grocery-7eleven.png'
-    },
-    {
-      'id': 2,
-      'name': 'Albertsons',
-      'storeLogo':'images/icons/grocery/icon-grocery-albertsons.png'
-    },
-    {
-      'id': 3,
-      'name': 'COSTCO',
-      'storeLogo':'images/icons/grocery/icon-grocery-costco.png'
-    },
-    {
-      'id': 4,
-      'name': 'Food Lion',
-      'storeLogo':'images/icons/grocery/icon-grocery-foodlion.png'
-    },
-    {
-      'id': 5,
-      'name': 'Jewel Osco',
-      'storeLogo':'images/icons/grocery/icon-grocery-jewelosco.png'
-    },
-
-
-    {
-      'id': 6,
-      'name': 'Kroger',
-      'storeLogo':'images/icons/grocery/icon-grocery-kroger.png'
-    },
-    {
-      'id': 7,
-      'name': 'Meijer',
-      'storeLogo':'images/icons/grocery/icon-grocery-meijer.png'
-    },
-    {
-      'id': 8,
-      'name': 'Publix',
-      'storeLogo':'images/icons/grocery/icon-grocery-publix.png'
-    },
-    {
-      'id': 9,
-      'name': 'Ralphs',
-      'storeLogo':'images/icons/grocery/icon-grocery-ralphs.png'
-    },
-    {
-      'id': 10,
-      'name': 'Safeway',
-      'storeLogo':'images/icons/grocery/icon-grocery-safeway.png'
-    },
-    {
-      'id': 11,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-    {
-      'id': 12,
-      'name': 'Sprouts',
-      'storeLogo':'images/icons/grocery/icon-grocery-sprouts.png'
-    },
-    {
-      'id': 13,
-      'name': 'Store Blue',
-      'storeLogo':'images/icons/grocery/icon-grocery-storeblue.png'
-    },
-    {
-      'id': 14,
-      'name': 'Store Green',
-      'storeLogo':'images/icons/grocery/icon-grocery-storegreen.png'
-    },
-    {
-      'id': 15,
-      'name': 'Store Orange',
-      'storeLogo':'images/icons/grocery/icon-grocery-storeorange.png'
-    },
-    {
-      'id': 16,
-      'name': 'Store Red',
-      'storeLogo':'images/icons/grocery/icon-grocery-storered.png'
-    },
-    {
-      'id': 17,
-      'name': 'Store Yellow',
-      'storeLogo':'images/icons/grocery/icon-grocery-storeyellow.png'
-    },
-    {
-      'id': 18,
-      'name': 'Target',
-      'storeLogo':'images/icons/grocery/icon-grocery-target.png'
-    },
-    {
-      'id': 19,
-      'name': 'Trader Joes',
-      'storeLogo':'images/icons/grocery/icon-grocery-traderjoes.png'
-    },
-    {
-      'id': 20,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-    {
-      'id': 21,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-    {
-      'id': 22,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-    {
-      'id': 23,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-    {
-      'id': 24,
-      'name': 'Sams Club',
-      'storeLogo':'images/icons/grocery/icon-grocery-sams.png'
-    },
-
-
-
-  ]
-}

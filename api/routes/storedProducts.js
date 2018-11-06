@@ -3,15 +3,13 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-
-const Product = require('../models/products');
+const StoredProduct = require('../models/storedProducts');
 
 router.get('/', (req, res, next) => {
-  Product.find()
-
-    .then(docs => {
-      console.log(docs);
-      res.status(200).json(docs);
+  StoredProduct
+    .find()
+    .then(products => {
+      res.status(200).json(products);
     })
     .catch(err => {
       console.log(err);
@@ -22,7 +20,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const product = new Product({
+  const product = new StoredProduct({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     price: req.body.price,
@@ -47,7 +45,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/:prodId', (req, res, next) => {
   const id = req.params.prodId;
-  Product.findById(id)
+  StoredProduct.findById(id)
 
     .then(doc => {
       console.log('from db', doc);
@@ -81,7 +79,7 @@ router.patch('/:prodId', (req, res, next) => {
   for (const key in req.body) {
     updateOps[key] = req.body[key];
   }
-  Product.findByIdAndUpdate( id, { $set: updateOps })
+  StoredProduct.findByIdAndUpdate( id, { $set: updateOps })
 
     .then( result => {
       console.log(result);
@@ -97,7 +95,7 @@ router.patch('/:prodId', (req, res, next) => {
 
 router.delete('/:prodId', (req, res, next) => {
   const id = req.params.prodId;
-  Product.remove({ _id: id })
+  StoredProduct.remove({ _id: id })
 
     .then( result => {
       res.status(200).json(result);

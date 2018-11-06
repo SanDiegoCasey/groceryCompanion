@@ -63,7 +63,10 @@ p {
   margin:10px 10px 20px 20px;
   font-size: 1em;
   color:#5b5b5b;
+}
 
+ul {
+  list-style-type: none;
 }
 
 /*  ------------ MENU BAR ROW ---------------------*/
@@ -125,10 +128,7 @@ p {
   margin-bottom: 5px;
 }
 
-.productname {
-  font-size: 1em;
-  margin-right:5px;
-}
+
 
 .productsize {
   font-size: .8em;
@@ -210,14 +210,22 @@ p {
 /*------ end edit stores -------- */
 /*------- add / edit productds ------*/
 
+.deleterow {
+  display:none;
+}
+
 .productname {
   font-size: 1.5em;
   color:#006600;
   font-family: 'Lato', sans-serif;
   font-weight:800;
   text-align: right;
-  margin-bottom: 5px;
+  margin-right:5px;
 }
+
+input[type=checkbox]#deleterow:checked ~ div.deleterow {
+  display:block;
+  }
 
 .add-prod-form-submit {
   width:98%;
@@ -239,7 +247,7 @@ p {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     color:#333;
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 .add-prod-form-submit input[type=submit] {
@@ -251,7 +259,7 @@ p {
     border-radius: 4px;
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 form {
@@ -291,6 +299,7 @@ section.add-a-product {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     color:#333;
+    vertical-align: middle;
 }
 
 .block-select select {
@@ -301,6 +310,7 @@ section.add-a-product {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     color:#333;
+    vertical-align: middle;
 }
 
 .add-a-prod-pricing {
@@ -340,6 +350,7 @@ section.add-a-product {
     font-size: 2em;
     text-align: right;
     font-weight: bold;
+    vertical-align: middle;
 
 }
 
@@ -377,6 +388,7 @@ section.add-a-product {
   border-radius: 4px;
   font-family: 'Lato', sans-serif;
   font-size: 1.2em;
+  vertical-align: middle;
 }
 
 .form-submit input[type=submit] {
@@ -387,6 +399,7 @@ section.add-a-product {
     border-radius: 4px;
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
+    vertical-align: middle;
 }
 
 #unit-result {
@@ -433,27 +446,31 @@ section.unit-converter {
    display: block;
    font-size: .8em;
    margin-right: 3px;
+   vertical-align: middle;
+   line-height:1;
+   font-size: 1.2em;
  }
  .form-group label.right-inline {
    text-align: right;
    width:auto;
+   vertical-align: middle;
  }
 
  .form-group label.right-inline-units {
    text-align: right;
+   vertical-align: middle;
  }
 
  .form-group select {
    text-align: right;
-   margin-top:-10px;
+   vertical-align: middle;
  }
 
  .form-group .input-control {
    display:block;
-   margin-bottom: 10px;
    margin-right: 5px;
-   margin-top: -4px;
    width:18%;
+   vertical-align: middle;
  }
  .submit-row {
    width:98%;
@@ -578,6 +595,8 @@ section.unit-converter {
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     margin-bottom: 14px;
+    vertical-align: middle;
+    line-height: 1.5;
 }
 
 .ibtn {
